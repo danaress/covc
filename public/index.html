@@ -1,38 +1,84 @@
-
 <!DOCTYPE html>
 <html ng-app="myApp">
   <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-    <script rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.js"></script>
     <script src="main.js"></script>
-    <script src="dash.js"></script>
     <link rel="stylesheet" href="./css/dash.css">
   </head>
+
   	<body ng-controller="mainController">
-
-
-
-      <!-- Container w/ Signup button and form -->
       <div class="container-fluid">
-        <div class="col-xs-8 col-xs-offset-2 center">
-          <h3 class="mainText">Welcome to <b>Remind Me To</b>, a simple sms-based reminder app. To get started, enter your phone number and press "Send me a text."</h3>
+      <h4 class="title">colo.vc</h4>
+        <div class="row">
+          <div class="col s8 offset-s2">
+<!--           <form>
+          <input type="file" file-model="myFile"/>
+          <button ng-submit="uploadFile()">upload me</button>
+          </form> -->
+            <a href="/metrics">TEST</a>
+            <input ng-model="search" placeholder="Search" class="searchBar"></input>
+          </div>
+        </div>
+      <div class="bothrows">      
+        <div class="row margin-top">
+          <div class="col s2">
+          </div>
+          <div class="col s8">
+            <table class="table striped highlight">
+              <thead>
+                <tr>
+                  <td>Recently Added:</td>
+                </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="row in recentCollection | orderBy:''| filter:search">
+                <td><a class="link" target="_blank" href={{row.coUrl}}>{{row.firstName}}</a></td>
+                <td>{{row.birthDate}}</td>
+                <td><a class="link" target="_blank" href={{row.email}}>{{row.balance}}</a></td>
+                <td>{{row.date}}</td>
+                <td>{{row.location}}</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="col s2"></div>
 
         </div>
-          <div class="col-xs-4 col-xs-offset-4">
-            <div class="center">
-                  <form class="form-group width100" ng-submit="signup()">
-                      <input class="form-control width100" type="text" ng-model="signupForm.username" placeholder="example: 5550125544"/>
-                      <input class="form-control width100" value="Send me a text" type="submit"/>
-                  </form>
-            </div>
-          </div>
-      </div>
 
-  
+        <div class="row mainTable">
+          <div class="col s2"></div>
+          <div class="col s8 scroll">
+            <table st-table="rowCollection" class="table striped highlight">
+              <thead>
+                <tr>
+                  <td>All Funding Rounds:</td>
+                </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="row in rowCollection | orderBy:'' | filter:search">
+                <td><a class="link" target="_blank" href={{row.coUrl}}>{{row.firstName}}</a></td>
+                <td>{{row.birthDate}}</td>
+                <td><a class="link" target="_blank" href={{row.email}}>{{row.balance}}</a></td>
+                <td>{{row.date}}</td>
+                <td>{{row.location}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col s2"></div>
+
+        </div>
+        </div>
+      </div>
 	</body>
 </html>

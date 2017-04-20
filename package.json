@@ -9,14 +9,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.15.0",
+    "crunchbase-api": "^0.2.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "http": "0.0.0",
     "intro.js": "^2.0.0",
     "mongodb": "^2.2.25",
     "mongoose": "^4.8.6",
+    "nightmare": "^2.10.0",
+    "papaparse": "^4.2.0",
+    "promise": "^7.1.1",
+    "scraperjs": "^1.2.0",
+    "selenium-webdriver": "^3.3.0",
+    "smart-table": "^1.0.0",
     "twilio": "^2.11.1",
-    "twilio-js": "^0.1.1"
+    "twilio-js": "^0.1.1",
+    "underscore": "^1.8.3",
+    "webdriverio": "^4.6.2"
   }
 }

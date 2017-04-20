@@ -1,22 +1,31 @@
 body{
 	height: 100vh;
-/*background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);*/
-background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
-color: white;
+	color: #616161;
 }
 
-.width100{
-	width: 100%;
-	margin-top: 15px;
-	border: none;
-	border-style: none;
-	color: gray;
+.link{
+	color: rgb(38, 166, 154);
 }
-.mainText{
-	font-size: 40px;
-	font-weight: 300;
+
+.margin-top{
+	margin-top:2em;
 }
-.center{
-	text-align: center;
-	margin-top: 10%;
+
+.mainTable{
+	margin-top: 2em;
+}
+
+.title{
+	margin-top: 2em;
+	margin-left: 2em;
+}
+.searchBar{
+	width: 80%;
+	margin-left: 10%;
+font-size: 14px;
+}
+
+.bothrows{
+	height: 70vh;
+	overflow-x: scroll;
 }
