@@ -16,11 +16,17 @@ var Nightmare = require('nightmare');
 
 test = function(req, res){
 
-var fakedata =[{TransactionName:"Flowhub's Series A",TransactionNameURL:"https://www.crunchbase.com/funding-round/9eac9b1a2031be66d897114005111ce5",CompanyName:"Flowhub",CompanyNameURL:"https://www.crunchbase.com/organization/flowhub",FundingType:"Series A",MoneyRaised:"$3,250,000",AnnouncedOnDate:"4/12/17",Location:"Denver"},
-{TransactionName:"Wurk's Seed Round",TransactionNameURL:"https://www.crunchbase.com/funding-round/f04442e8d711809a74192eee97850012",CompanyName:"Wurk",CompanyNameURL:"https://www.crunchbase.com/organization/wurk",FundingType:"Seed",MoneyRaised:"$2,000,000",AnnouncedOnDate:"4/11/17",Location:"Denver"},
-{TransactionName:"CyberGRX's Series B",TransactionNameURL:"https://www.crunchbase.com/funding-round/bf9177bf6fd6e2ca7aafda496b84b9b6",CompanyName:"CyberGRX",CompanyNameURL:"https://www.crunchbase.com/organization/cybergrx",FundingType:"Series B",MoneyRaised:"$20,000,000 ",AnnouncedOnDate:"4/18/17",Location:"Denver"},
-{TransactionName:"Turbo Tenant, LLC's Venture Round",TransactionNameURL:"https://www.crunchbase.com/funding-round/1f4e4410bc864ee2ca0bfd7280e8750d",CompanyName:"Turbo Tenant, LLC",CompanyNameURL:"https://www.crunchbase.com/organization/turbo-tenant-llc",FundingType:"Series Unknown",MoneyRaised:"$1,500,000",AnnouncedOnDate:"4/18/17",Location:"Fort Collins"},
-{TransactionName:"Sphero's Venture Round",TransactionNameURL:"https://www.crunchbase.com/funding-round/8ec28fc9c982a712ce1bd2465a82c43a",CompanyName:"Sphero",CompanyNameURL:"https://www.crunchbase.com/organization/orbotix",FundingType:"Series Unknown",MoneyRaised:"$23,000,000",AnnouncedOnDate:"4/7/17",Location:"Boulder"},
+var fakedata =[
+ {
+   TransactionName: "Cerapedics' Debt Financing",
+   TransactionNameURL: "https://www.crunchbase.com/funding-round/0964ae7c7f8114c4d7bbd1245fea5eef",
+   CompanyName: "Cerapedics",
+   CompanyNameURL: "https://www.crunchbase.com/organization/cerapedics",
+   FundingType: "Debt Financing",
+   MoneyRaised: "$20,000,000 ",
+   AnnouncedOnDate: "4/19/17",
+   Location: "Westminster"
+ }
 ]
 
 
@@ -81,11 +87,24 @@ nightmare
 }
 
 
+addRound = function(req, res){
+        if(req.body.password == '112233'){
+        var newRound = [req.body]
+        rounds.create(newRound, function(err, doc){
+    res.send(doc)
+        })
+          } else {
+            res.send("wrong password")
+          }
+}
+
+
 module.exports = {
 	test : test,
 	test2 : test2,
 	CBtest : CBtest,
-	csv : csv
+	csv : csv,
+  addRound : addRound
 }
 
 

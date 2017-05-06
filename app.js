@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var _ = require('underscore');
 var papa = require('papaparse')
+var numeral = require('numeral');
 
 var scraperjs = require('scraperjs');
 
@@ -39,10 +40,16 @@ app.post('/test2', controller.test2);
 app.post('/CBtest', controller.CBtest);
 app.post('/csv', controller.csv);
 app.post('/getinfo', metrics.getinfo);
+app.post('/addRound', controller.addRound);
 
 
-app.get('/metrics', function(req, res) {
-	res.sendFile('/metrics.html', {root : './public'});
+
+// app.get('/metrics', function(req, res) {
+// 	res.sendFile('/metrics.html', {root : './public'});
+// });
+
+app.get('/new', function(req, res) {
+	res.sendFile('/new.html', {root : './public'});
 });
 
 

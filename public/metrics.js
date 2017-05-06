@@ -8,67 +8,103 @@ angular.module('myApp', [])
                 method : 'POST',
                 url    : '/getinfo'
             }).then(function(returnData){
-                console.log(returnData.data)
 
+                console.log(returnData.data)
+                
 $scope.jan = 0
-var feb = 0
-var mar = 0
-var apr = 0
-var may = 0
-var jun = 0
-var jul = 0
+$scope.feb = 0
+$scope.mar = 0
+$scope.apr = 0
+$scope.may = 0
+$scope.jun = 0
+$scope.jul = 0
+$scope.monthTotals = [["Month", "Total"]]
 for (i=0; i<returnData.data.length; i++){
     var d = new Date(returnData.data[i].AnnouncedOnDate);
     var mnth = d.getMonth()
-    console.log(mnth)
-    if(mnth == 3){
-    $scope.jan = ($scope.jan + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")))
-    console.log($scope.jan)
-    }else{
-        console.log("not jan")
-    }
-}
+    var year = d.getFullYear()
+    var monthYear = (mnth + "/" + year)
+    console.log($scope.monthTotals.includes(monthYear))
 
-$scope.getchart()
+    // for (i=0; i<$scope.monthTotals.length; i++){
+    // console.log('cee')
+
+    if($scope.monthTotals[i].includes(monthYear)){
+        console.log("in there")
+    } else{
+        console.log('gg')
+        var newarray = []
+        newarray.push([monthYear])
+        $scope.monthTotals.push(newarray)
+    }
+// }
+
+
+
+// function entry(monthyear, totalmoney) {
+//     this.firstName = monthyear;
+//     this.lastName = totalmoney;
+// }
+// var january = new person("0/2016", "100000");
+
+
+
+
+
+
+
+    // switch (new Date(d).getMonth()){
+    //     case 0:
+    //     $scope.jan = ($scope.jan + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")));
+    //     break;
+
+    //     case 1:
+    //     $scope.feb = ($scope.feb + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")));
+    //     break;
+
+    //     case 2:
+    //     $scope.mar = ($scope.mar + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")));
+    //     break;
+
+    //     case 3:
+    //     $scope.apr = ($scope.apr + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")));
+    //     break;
+
+    //     case 4:
+    //     $scope.may = ($scope.may + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")));
+    //     break;
+
+    //     case 5:
+    //     $scope.jun = ($scope.jun + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")));
+    //     break;
+
+    //     case 6:
+    //     $scope.jul = ($scope.jul + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")));
+    //     break;
+    // }
+
+    // if(mnth == 3){
+    // $scope.jan = ($scope.jan + Number(returnData.data[i].MoneyRaised.replace(/[^0-9\.]+/g,"")))
+    // }else{
+    //     console.log("not jan")
+    // }
+    $scope.janMil = Math.round($scope.jan/1000000)
+    $scope.febMil = Math.round($scope.feb/1000000)
+    $scope.marMil = Math.round($scope.mar/1000000)
+    $scope.aprMil = Math.round($scope.apr/1000000)
+    $scope.mayMil = Math.round($scope.may/1000000)
+    $scope.junMil = Math.round($scope.jun/1000000)
+    $scope.julMil = Math.round($scope.jul/1000000)
+
+
+}
+console.log("total = "+$scope.monthTotals)
+
+// create chart here
+
             })}
 
-$scope.getchart = function(){
-var ctx = document.getElementById("myChart");
-var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July",],
-    datasets: [
-        {
-            label: "Anual Growth",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: [$scope.jan, $scope.jan],
-            spanGaps: false,
-        }
-    ]
-};
 
-var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: data
-});
 
-}
-
-$scope.getinfo()
 
 }])
