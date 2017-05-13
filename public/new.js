@@ -1,15 +1,16 @@
 
-angular.module('myApp', [])
-	.controller('newController', ['$scope', '$http', function($scope, $http){
+// angular.module('myApp', [])
+// 	.controller('newController', ['$scope', '$http', function($scope, $http){
 
-        $scope.addRound = function(){
-            $http({ 
-                method : 'POST',
-                url    : '/addRound',
-                data : $scope.addARound
-            }).then(function(returnData){
-                console.log(returnData)
-            })}
+//         $scope.addRound = function(){
+//         	console.log("assround")
+//             $http({ 
+//                 method : 'POST',
+//                 url    : '/addRound',
+//                 data : $scope.addARound
+//             }).then(function(returnData){
+//                 console.log("add round = "+returnData)
+//             })}
 
 
-}])
+// }])

@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var controller = require("./controllers/controller.js");
 var metrics = require("./controllers/metricsController.js");
+var newcontroller = require("./controllers/controller.js");
+
 
 
 // Database
@@ -41,6 +43,8 @@ app.post('/CBtest', controller.CBtest);
 app.post('/csv', controller.csv);
 app.post('/getinfo', metrics.getinfo);
 app.post('/addRound', controller.addRound);
+app.post('/deleteRound', controller.deleteRound);
+
 
 
 
@@ -50,8 +54,8 @@ app.post('/addRound', controller.addRound);
 // 	res.sendFile('/metrics.html', {root : './public'});
 // });
 
-app.get('/new', function(req, res) {
-	res.sendFile('/new.html', {root : './public'});
+app.get('/edit', function(req, res) {
+	res.sendFile('/edit.html', {root : './public'});
 });
 
 

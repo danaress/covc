@@ -12,10 +12,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="new.js"></script>
+    <script src="main.js"></script>
     <link rel="stylesheet" href="./css/dash.css">
   </head>
 
-  <body ng-controller="newController">
+  <body ng-controller="mainController">
 
   <button ng-click="getProj()">Add info</button>
   
@@ -63,6 +64,68 @@
         </table>
       </form>
     </div>
+  </div>
+  <div class="row editSearch">
+    <div class="col s8 offset-s2">
+      <input ng-model="search" placeholder="Search" class="searchBar"></input>
+    </div>
+  </div>
+
+
+<div class="bothrows">      
+  <div class="row margin-top">
+    <div class="col s2">
+    </div>
+    <div class="col s8">
+      <table class="table striped highlight">
+        <thead>
+          <tr>
+            <td>Recently Added:</td>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in recentCollection | orderBy:''| filter:search">
+          <td><a class="link" target="_blank" href={{row.coUrl}}>{{row.firstName}}</a></td>
+          <td>{{row.birthDate}}</td>
+          <td><a class="link" target="_blank" href={{row.email}}>{{row.balance}}</a></td>
+          <td>{{row.date}}</td>
+          <td>{{row.location}}</td>
+          <td><input class="btn-flat" type="submit" value="delete" ng-click="deleteRound(row)"></input></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="col s2"></div>
+
+  </div>
+
+  <div class="row mainTable">
+    <div class="col s2"></div>
+    <div class="col s8 scroll">
+      <table st-table="rowCollection" class="table striped highlight">
+        <thead>
+          <tr>
+            <td>All Funding Rounds:</td>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in rowCollection | orderBy:'' | filter:search">
+          <td><a class="link" target="_blank" href={{row.coUrl}}>{{row.firstName}}</a></td>
+          <td>{{row.birthDate}}</td>
+          <td><a class="link" target="_blank" href={{row.email}}>{{row.balance}}</a></td>
+          <td>{{row.date}}</td>
+          <td>{{row.location}}</td>
+          <td><input class="btn-flat" type="submit" value="delete" ng-click="deleteRound(row)"></input></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col s2"></div>
+
+  </div>
   </div>
 </div>
 

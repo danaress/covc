@@ -42,6 +42,26 @@ angular.module('myApp', ['smart-table'])
             }).then(function(returnData){
                 console.log(returnData.data[0].AnnouncedOnDate)
 
+        $scope.deleteRound = function(row){
+            $scope.poop = row
+            console.log($scope.poop.email)
+            $http({ 
+                method : 'POST',
+                url    : '/deleteRound',
+                data   : $scope.poop
+            }).then(function(returnData){
+                console.log(returnData)
+            })}
+
+        $scope.addRound = function(){
+            $http({ 
+                method : 'POST',
+                url    : '/addRound',
+                data : $scope.addARound
+            }).then(function(returnData){
+                console.log("add round = "+returnData)
+            })}
+
 
 var fundingArray = returnData.data.sort(function(a,b) { 
     return new Date(b.AnnouncedOnDate).getTime() - new Date(a.AnnouncedOnDate).getTime() 

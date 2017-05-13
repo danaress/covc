@@ -99,12 +99,22 @@ addRound = function(req, res){
 }
 
 
+deleteRound = function(req, res){
+    rounds.remove({'TransactionNameURL':req.body.email}, function(err, doc){
+    res.send(doc)
+
+  }
+)
+  }
+
+
 module.exports = {
 	test : test,
 	test2 : test2,
 	CBtest : CBtest,
 	csv : csv,
-  addRound : addRound
+  addRound : addRound,
+  deleteRound : deleteRound
 }
 
 
