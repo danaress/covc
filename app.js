@@ -58,6 +58,13 @@ app.get('/edit', function(req, res) {
 	res.sendFile('/edit.html', {root : './public'});
 });
 
+app.get('/about', function(req, res) {
+	res.sendFile('/about.html', {root : './public'});
+});
+
+app.get('/home', function(req, res) {
+	res.sendFile('/index.html', {root : './public'});
+});
 
 
 app.get('/', function(req, res) {
@@ -65,7 +72,7 @@ app.get('/', function(req, res) {
 });
 
 // Creating Server and Listening for Connections \\
-var port = 3030
+var port = 80
 app.listen(port, function(){
   console.log('*** Server running on port ' + port + " ***");
 

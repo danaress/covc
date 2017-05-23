@@ -11,6 +11,10 @@ body{
 	margin-top:2em;
 }
 
+.margin-bottom{
+	margin-bottom: 1em;
+}
+
 .mainTable{
 	margin-top: 2em;
 }
@@ -18,6 +22,12 @@ body{
 .title{
 	margin-top: 2em;
 	margin-left: 2em;
+}
+.subtitle{
+	float: right;
+	margin: 2em 2em;
+	font-size: 14px;
+		color: #616161;
 }
 .searchBar{
 	width: 80%;

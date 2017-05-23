@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="new.js"></script>
+    <link rel="stylesheet" href="./css/dash.css">
+  </head>
+
+  <body ng-controller="newController">
+
+  <button ng-click="getProj()">Add info</button>
+  
+
+<div class="container-fluid">
+  <div class="row margin-top">
+
+    <div class="col s8 offset-s2">
+      <form ng-submit="addRound()">
+        <table>
+          <thead></thead>
+          <tbody>
+            <tr>
+              <input  type="text" placeholder="Funding Round Name" ng-model="addARound.TransactionName">
+            </tr>
+            <tr>
+              <input  type="text" placeholder="Funding Round URL" ng-model="addARound.TransactionNameURL">
+            </tr>
+            <tr>
+              <input  type="text" placeholder="Company Name" ng-model="addARound.CompanyName">
+            </tr>
+            <tr>
+              <input  type="text" placeholder="Company URL" ng-model="addARound.CompanyNameURL">
+            </tr>
+            <tr>
+              <input  type="text" placeholder="Funding Type" ng-model="addARound.FundingType">
+            </tr>
+            <tr>
+              <input type="text" placeholder="Money Raised" ng-model="addARound.MoneyRaised">
+            </tr>
+            <tr>
+              <input  type="text" placeholder="Announced on Date" ng-model="addARound.AnnouncedOnDate">
+            </tr>
+            <tr>
+              <input  type="text" placeholder="Location" ng-model="addARound.Location">
+            </tr>
+            <tr>
+              <input  type="text" placeholder="Password" ng-model="addARound.password">
+            </tr>
+            <tr>
+              <input class="btn waves-effect waves-light" type="submit">
+            </tr>
+
+            </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  </body>
+</html>
